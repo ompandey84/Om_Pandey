@@ -4,6 +4,7 @@
 
 [![Live Portfolio](https://img.shields.io/badge/Portfolio-Live-00F0FF?style=for-the-badge)](https://ompandey84.github.io/Om_Pandey/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-pandeyom-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/pandeyom/)
+[![GitHub](https://img.shields.io/badge/GitHub-ompandey84-181717?style=for-the-badge&logo=github)](https://github.com/ompandey84)
 [![Email](https://img.shields.io/badge/Email-ompandey8435@gmail.com-D14836?style=for-the-badge&logo=gmail)](mailto:ompandey8435@gmail.com)
 
 ---
@@ -76,13 +77,13 @@ Django-based e-commerce platform with product collections, categories, trending 
 Full-stack travel & event booking platform with dynamic itinerary generation, payment gateway integration, and admin dashboard.
 > **Stack:** PHP, MySQL, Bootstrap
 
-### 🍽️ Contactless Dining
-QR-code based automated ordering system reducing restaurant wait times and physical contact.
-> **Stack:** Node.js, JavaScript, QR APIs
+### 🏦 [Forage Midas](https://github.com/ompandey84/forage-midas)
+JPMorgan Chase Software Engineering Job Simulation via Forage — implemented REST API integrations and a transaction incentive engine.
+> **Stack:** Java, Spring Boot, Forage
 
-### 🏦 JPMorgan Chase Engineering Simulation
-Implemented REST API integrations and transaction incentive engine as part of JPMorgan's virtual engineering program.
-> **Stack:** Java, Spring Boot
+### 🏗️ Particle 14 Internship
+Full Stack Intern (Oct–Dec 2025). Built scalable REST APIs, integrated MySQL, and built cross-browser interfaces.
+> **Stack:** Java, Node.js, MySQL, Bootstrap
 
 ---
 
@@ -98,8 +99,11 @@ Implemented REST API integrations and transaction incentive engine as part of JP
 
 ## 💼 Experience
 
-**Software Developer Intern** — Particle 14 Pvt. Ltd., Indore *(2025 – Present)*
-Building production-grade web applications, integrating AI features, and contributing to scalable backend systems.
+**Software Developer Intern (Full Stack)** — Particle 14 Pvt. Ltd., Indore *(Oct 2025 – Dec 2025)*
+- Architected and maintained scalable backend services and RESTful APIs using Java and Node.js.
+- Integrated applications with MySQL, implementing optimized queries for faster data retrieval.
+- Built responsive, user-centric interfaces using HTML, CSS, and Bootstrap.
+- Conducted debugging and refactoring sessions, resulting in improved application stability.
 
 ---
 
