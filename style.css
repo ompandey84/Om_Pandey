@@ -397,9 +397,10 @@ body {
     }
 }
 
-/* SECTIONS — solid bg so 3D canvas doesn't bleed through */
+/* SECTIONS — semi-transparent bg so particles twinkle through */
 .marquee-section {
-    background: var(--bg);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
     position: relative;
     z-index: 2;
 }
@@ -413,9 +414,9 @@ body {
     z-index: 2;
 }
 
-/* Solid backdrop wrapper for all content after hero */
+/* Semi-transparent backdrop for content so particles show through */
 main>*:not(.hero):not(#scroll-hint) {
-    background: var(--bg);
+    background: rgba(0, 0, 0, 0.6);
     position: relative;
     z-index: 2;
 }
