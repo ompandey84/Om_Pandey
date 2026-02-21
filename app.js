@@ -53,12 +53,18 @@ octa.position.set(4, -4, -6);
 shapesGroup.add(octa);
 
 // Particles
-const particleCount = 200;
+const particleCount = 1000;
 const pGeo = new THREE.BufferGeometry();
 const pArr = new Float32Array(particleCount * 3);
-for (let i = 0; i < particleCount * 3; i++) pArr[i] = (Math.random() - 0.5) * 40;
+const pVel = new Float32Array(particleCount * 3); // Velocity for each particle
+
+for (let i = 0; i < particleCount * 3; i++) {
+    pArr[i] = (Math.random() - 0.5) * 50;
+    pVel[i] = (Math.random() - 0.5) * 0.02;
+}
 pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
-scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.03, color: 0x666666, transparent: true, opacity: 0.4 })));
+const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.04, color: 0x888888, transparent: true, opacity: 0.5 }));
+scene.add(particles);
 
 // Mouse & Scroll tracking
 let mouseX = 0, mouseY = 0;
@@ -78,6 +84,7 @@ function animate() {
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
+    // Rotate and Move Shapes
     torusKnot.rotation.x = t * 0.14;
     torusKnot.rotation.y = t * 0.18;
     ico.rotation.x = t * 0.1;
@@ -91,6 +98,22 @@ function animate() {
     sphere.position.y = 4 + Math.sin(t * 0.4 + 2) * 0.7;
     octa.position.y = -4 + Math.sin(t * 0.65 + 3) * 0.7;
 
+    // Background Particle Movement
+    const positions = particles.geometry.attributes.position.array;
+    for (let i = 0; i < particleCount * 3; i += 3) {
+        positions[i] += pVel[i] + Math.sin(t * 0.2 + i) * 0.005;     // X movement
+        positions[i + 1] += pVel[i + 1] + Math.cos(t * 0.3 + i) * 0.005; // Y movement
+        positions[i + 2] += pVel[i + 2]; // Z movement
+
+        // Boundary checks
+        if (Math.abs(positions[i]) > 25) positions[i] *= -0.9;
+        if (Math.abs(positions[i + 1]) > 25) positions[i + 1] *= -0.9;
+        if (Math.abs(positions[i + 2]) > 25) positions[i + 2] *= -0.9;
+    }
+    particles.geometry.attributes.position.needsUpdate = true;
+    particles.rotation.y = t * 0.02;
+
+    // Mouse Parallax
     shapesGroup.rotation.y += (mouseX * 0.25 - shapesGroup.rotation.y) * 0.025;
     shapesGroup.rotation.x += (-mouseY * 0.15 - shapesGroup.rotation.x) * 0.025;
 

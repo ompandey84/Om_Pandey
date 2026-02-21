@@ -6,12 +6,14 @@
 :root {
     --bg: #000000;
     --text: #ffffff;
-    --text-muted: #777777;
+    --text-muted: #a0a0a0;
+    /* Increased brightness for better contrast */
     --accent: #00F0FF;
     --accent2: #c084fc;
     --accent3: #fb923c;
-    --card-bg: rgba(255, 255, 255, 0.04);
-    --card-border: rgba(255, 255, 255, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.12);
+    /* Slightly more visible borders */
     --radius: 24px;
     --transition: cubic-bezier(0.16, 1, 0.3, 1);
 }
