@@ -37,19 +37,19 @@ const shapesGroup = new THREE.Group();
 scene.add(shapesGroup);
 
 const torusKnot = new THREE.Mesh(new THREE.TorusKnotGeometry(2.2, 0.7, 100, 16), glassMat);
-torusKnot.position.set(6, 2, -5);
+torusKnot.position.set(6, 2, -18);
 shapesGroup.add(torusKnot);
 
 const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(2, 0), matteMat);
-ico.position.set(-5, -1, -3);
+ico.position.set(-5, -1, -16);
 shapesGroup.add(ico);
 
 const sphere = new THREE.Mesh(new THREE.SphereGeometry(1.4, 32, 32), metalMat);
-sphere.position.set(-2, 4, -8);
+sphere.position.set(-2, 4, -20);
 shapesGroup.add(sphere);
 
 const octa = new THREE.Mesh(new THREE.OctahedronGeometry(1.7, 0), orangeMat);
-octa.position.set(4, -4, -6);
+octa.position.set(4, -4, -18);
 shapesGroup.add(octa);
 
 // Particles
@@ -60,7 +60,7 @@ const pVel = new Float32Array(particleCount * 3); // Velocity for each particle
 
 for (let i = 0; i < particleCount * 3; i++) {
     pArr[i] = (Math.random() - 0.5) * 50;
-    pVel[i] = (Math.random() - 0.5) * 0.02;
+    pVel[i] = (Math.random() - 0.5) * 0.06; // faster velocity
 }
 pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
 const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.04, color: 0x888888, transparent: true, opacity: 0.5 }));
@@ -101,17 +101,16 @@ function animate() {
     // Background Particle Movement
     const positions = particles.geometry.attributes.position.array;
     for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] += pVel[i] + Math.sin(t * 0.2 + i) * 0.005;     // X movement
-        positions[i + 1] += pVel[i + 1] + Math.cos(t * 0.3 + i) * 0.005; // Y movement
-        positions[i + 2] += pVel[i + 2]; // Z movement
+        positions[i] += pVel[i] + Math.sin(t * 0.4 + i) * 0.008;
+        positions[i + 1] += pVel[i + 1] + Math.cos(t * 0.5 + i) * 0.008;
+        positions[i + 2] += pVel[i + 2];
 
-        // Boundary checks
         if (Math.abs(positions[i]) > 25) positions[i] *= -0.9;
         if (Math.abs(positions[i + 1]) > 25) positions[i + 1] *= -0.9;
         if (Math.abs(positions[i + 2]) > 25) positions[i + 2] *= -0.9;
     }
     particles.geometry.attributes.position.needsUpdate = true;
-    particles.rotation.y = t * 0.02;
+    particles.rotation.y = t * 0.04;
 
     // Mouse Parallax
     shapesGroup.rotation.y += (mouseX * 0.25 - shapesGroup.rotation.y) * 0.025;

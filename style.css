@@ -397,11 +397,27 @@ body {
     }
 }
 
+/* SECTIONS — solid bg so 3D canvas doesn't bleed through */
+.marquee-section {
+    background: var(--bg);
+    position: relative;
+    z-index: 2;
+}
+
 /* SECTIONS */
 .section {
     padding: 120px 40px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Solid backdrop wrapper for all content after hero */
+main>*:not(.hero):not(#scroll-hint) {
+    background: var(--bg);
+    position: relative;
+    z-index: 2;
 }
 
 .section-label {
