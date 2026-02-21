@@ -63,7 +63,7 @@ for (let i = 0; i < particleCount * 3; i++) {
     pVel[i] = (Math.random() - 0.5) * 0.06; // faster velocity
 }
 pGeo.setAttribute('position', new THREE.BufferAttribute(pArr, 3));
-const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.04, color: 0x888888, transparent: true, opacity: 0.5 }));
+const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.07, color: 0xaaddff, transparent: true, opacity: 0.75 }));
 scene.add(particles);
 
 // Mouse & Scroll tracking
